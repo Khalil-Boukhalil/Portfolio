@@ -209,7 +209,7 @@ function App() {
           <div className="container">
             <SectionHeading
               eyebrow="Projects"
-              title="Recruiter-ready project highlights"
+              title="Selected AI projects"
               text="Selected work showing practical AI engineering, generative AI workflows, and connected software systems."
             />
             <div className="project-grid">
