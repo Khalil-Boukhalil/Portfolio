@@ -12,7 +12,12 @@ import {
   Server,
 } from 'lucide-react'
 import heroVisual from './assets/ai-portfolio-visual.png'
-import { experience, profile, projects, skills } from './data/portfolio'
+import {
+  experience,
+  profile,
+  projects,
+  skillCategories,
+} from './data/portfolio'
 import './App.css'
 
 const projectIcons = {
@@ -23,7 +28,35 @@ const projectIcons = {
 
 const socialLinks = [
   { label: 'GitHub', href: profile.links.github, icon: Code },
+  { label: 'LinkedIn', href: profile.links.linkedin, icon: Briefcase },
   { label: 'Email', href: profile.links.email, icon: Mail },
+]
+
+const contactLinks = [
+  {
+    label: 'Email',
+    value: profile.contact.email,
+    href: profile.links.email,
+    icon: Mail,
+  },
+  {
+    label: 'GitHub',
+    value: profile.contact.github,
+    href: profile.links.github,
+    icon: Code,
+  },
+  {
+    label: 'LinkedIn',
+    value: profile.contact.linkedin,
+    href: profile.links.linkedin,
+    icon: Briefcase,
+  },
+  {
+    label: 'Location',
+    value: profile.contact.location,
+    href: null,
+    icon: MapPin,
+  },
 ]
 
 const focusItems = [
@@ -94,7 +127,7 @@ function App() {
           <img className="hero-visual" src={heroVisual} alt="" />
           <div className="hero-overlay" aria-hidden="true"></div>
           <div className="hero-content">
-            <p className="eyebrow">Portfolio</p>
+            <p className="hero-badge">{profile.badge}</p>
             <h1>{profile.name}</h1>
             <p className="role">{profile.role}</p>
             <p className="hero-copy">{profile.intro}</p>
@@ -151,15 +184,22 @@ function App() {
           <div className="container">
             <SectionHeading
               eyebrow="Skills"
-              title="Technical toolkit"
-              text="A focused stack for AI engineering, data-driven applications, and connected software systems."
+              title="Technical toolkit for AI internships"
+              text="Grouped skills across machine learning, generative AI workflows, software development, and production-oriented tools."
             />
-            <div className="skills-grid">
-              {skills.map((skill) => (
-                <span className="skill-pill" key={skill}>
-                  <Code size={16} aria-hidden="true" />
-                  {skill}
-                </span>
+            <div className="skill-category-grid">
+              {skillCategories.map((category) => (
+                <article className="skill-category" key={category.title}>
+                  <h3>{category.title}</h3>
+                  <div className="skills-grid">
+                    {category.items.map((skill) => (
+                      <span className="skill-pill" key={skill}>
+                        <Code size={16} aria-hidden="true" />
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -169,24 +209,55 @@ function App() {
           <div className="container">
             <SectionHeading
               eyebrow="Projects"
-              title="Selected AI and software projects"
-              text="Project work across machine learning, LLM agents, connected systems, and applied web development."
+              title="Recruiter-ready project highlights"
+              text="Selected work showing practical AI engineering, generative AI workflows, and connected software systems."
             />
             <div className="project-grid">
-              {projects.map(({ title, icon, description, focus }) => {
+              {projects.map(({ title, icon, description, technologies, links }) => {
                 const Icon = projectIcons[icon] ?? Database
 
                 return (
                   <article className="project-card" key={title}>
-                    <span className="project-icon">
-                      <Icon size={22} aria-hidden="true" />
-                    </span>
+                    <div className="project-card-top">
+                      <span className="project-icon">
+                        <Icon size={22} aria-hidden="true" />
+                      </span>
+                      <span className="project-type">AI project</span>
+                    </div>
                     <h3>{title}</h3>
                     <p>{description}</p>
+                    <h4>Technologies</h4>
                     <div className="project-tags">
-                      {focus.map((item) => (
+                      {technologies.map((item) => (
                         <span key={item}>{item}</span>
                       ))}
+                    </div>
+                    <div className="project-actions">
+                      <a
+                        className="project-link"
+                        href={links.github}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        <Code size={16} aria-hidden="true" />
+                        GitHub
+                      </a>
+                      {links.demo ? (
+                        <a
+                          className="project-link project-link-secondary"
+                          href={links.demo}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          <Server size={16} aria-hidden="true" />
+                          Demo
+                        </a>
+                      ) : (
+                        <span className="project-link project-link-muted">
+                          <Server size={16} aria-hidden="true" />
+                          Demo pending
+                        </span>
+                      )}
                     </div>
                   </article>
                 )
@@ -244,26 +315,38 @@ function App() {
           <div className="container contact-grid">
             <div>
               <p className="eyebrow">Contact</p>
-              <h2>Let's build practical AI systems.</h2>
+              <h2>Available for AI internship conversations.</h2>
             </div>
             <div className="contact-actions">
               <p>
-                Contact me by email or GitHub to discuss AI projects or
-                technical collaboration.
+                Reach out for AI, machine learning, LLM, and agent-focused
+                internship opportunities in France.
               </p>
               <div className="contact-details" aria-label="Contact details">
-                <a href={profile.links.email}>
-                  <Mail size={18} aria-hidden="true" />
-                  {profile.contact.email}
-                </a>
-                <a
-                  href={profile.links.github}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <Code size={18} aria-hidden="true" />
-                  {profile.contact.github}
-                </a>
+                {contactLinks.map(({ label, value, href, icon: Icon }) =>
+                  href ? (
+                    <a
+                      href={href}
+                      key={label}
+                      rel={label === 'Email' ? undefined : 'noreferrer'}
+                      target={label === 'Email' ? undefined : '_blank'}
+                    >
+                      <Icon size={18} aria-hidden="true" />
+                      <span>
+                        <strong>{label}</strong>
+                        {value}
+                      </span>
+                    </a>
+                  ) : (
+                    <span className="contact-info" key={label}>
+                      <Icon size={18} aria-hidden="true" />
+                      <span>
+                        <strong>{label}</strong>
+                        {value}
+                      </span>
+                    </span>
+                  ),
+                )}
               </div>
               <ProfileLinks light />
             </div>

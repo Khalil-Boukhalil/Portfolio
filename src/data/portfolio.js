@@ -1,7 +1,8 @@
 // Edit this file first when you want to update portfolio content.
 export const profile = {
   name: 'Khalil Bou Khalil',
-  role: 'AI Engineer | Master’s Student in Artificial Intelligence',
+  role: "AI Engineer Intern Candidate | Master's Student in AI",
+  badge: 'Seeking AI / ML Internship',
   education:
     'Master in Artificial Intelligence for Connected Industries at CNAM Paris; Bachelor in Computer Science',
   location: 'Based in France',
@@ -11,29 +12,34 @@ export const profile = {
     'Currently seeking AI internships where I can contribute to practical machine learning, LLM, and AI agent projects while continuing to grow as an AI engineer.',
   links: {
     github: 'https://github.com/Khalil-Boukhalil',
+    linkedin: 'https://fr.linkedin.com/in/khalil-bou-khalil-0587bb235',
     email: 'mailto:khalil_bou_khalil@hotmail.com',
   },
   contact: {
     email: 'khalil_bou_khalil@hotmail.com',
     github: 'github.com/Khalil-Boukhalil',
+    linkedin: 'linkedin.com/in/khalil-bou-khalil-0587bb235',
+    location: 'France',
   },
 }
 
-export const skills = [
-  'Python',
-  'Machine Learning',
-  'Deep Learning',
-  'LLMs',
-  'AI Agents',
-  'Federated Learning',
-  'Docker',
-  'Kafka',
-  'MongoDB',
-  'Flask',
-  'Git',
-  'HTML',
-  'CSS',
-  'JavaScript',
+export const skillCategories = [
+  {
+    title: 'AI / ML',
+    items: ['Machine Learning', 'Deep Learning', 'Federated Learning'],
+  },
+  {
+    title: 'Generative AI',
+    items: ['LLMs', 'AI Agents', 'Multi-agent workflows'],
+  },
+  {
+    title: 'Programming',
+    items: ['Python', 'JavaScript', 'HTML', 'CSS', 'Flask'],
+  },
+  {
+    title: 'Tools',
+    items: ['Docker', 'Kafka', 'MongoDB', 'Git'],
+  },
 ]
 
 export const projects = [
@@ -41,22 +47,34 @@ export const projects = [
     title: 'Smart Parking Management System',
     icon: 'parking',
     description:
-      'A connected-city project focused on parking availability, reservation flow, and operational visibility for smarter mobility services.',
-    focus: ['Flask', 'MongoDB', 'JavaScript'],
+      'Connected-city application for parking availability, reservation flow, and operational visibility.',
+    technologies: ['Flask', 'MongoDB', 'JavaScript', 'HTML/CSS'],
+    links: {
+      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      demo: '',
+    },
   },
   {
     title: 'Federated Learning Projects',
     icon: 'federated',
     description:
-      'Experiments with decentralized model training, client aggregation, and privacy-aware AI workflows.',
-    focus: ['Federated Learning', 'Python', 'ML'],
+      'Privacy-aware machine learning experiments with decentralized training, client aggregation, and evaluation workflows.',
+    technologies: ['Python', 'Machine Learning', 'Federated Learning'],
+    links: {
+      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      demo: '',
+    },
   },
   {
     title: 'Multi-Agent Business Memo Generator',
     icon: 'agents',
     description:
-      'A multi-agent workflow that structures business memo generation through coordinated research, planning, and drafting steps.',
-    focus: ['LLMs', 'AI Agents', 'Automation'],
+      'Generative AI workflow that coordinates analysis, drafting, feedback, and approval steps for professional memo writing.',
+    technologies: ['LLMs', 'AI Agents', 'Python', 'Automation'],
+    links: {
+      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      demo: '',
+    },
   },
 ]
 
@@ -65,16 +83,16 @@ export const experience = [
     label: 'Education',
     title: 'Master in Artificial Intelligence for Connected Industries',
     institution:
-      'Conservatoire national des arts et métiers (CNAM), Paris',
-    period: '2024 – 2026',
+      'Conservatoire national des arts et metiers (CNAM), Paris',
+    period: '2024 - 2026',
     detail:
-      'Master-level training in AI methods, industrial use cases, connected systems, and applied software engineering.',
+      'Master-level training in AI methods, connected-industry systems, industrial use cases, and applied software engineering.',
   },
   {
     label: 'Education',
     title: 'Bachelor in Computer Science',
     institution: 'Lebanese International University',
-    period: '2020 – 2024',
+    period: '2020 - 2024',
     detail:
       'Computer science foundation covering programming, software development, databases, and core computing concepts.',
   },
