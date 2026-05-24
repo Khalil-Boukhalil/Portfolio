@@ -282,6 +282,10 @@
   margin: 0;
 }
 
+.section-heading-large h2 {
+  font-size: 3rem;
+}
+
 .section-heading p:last-child {
   color: var(--muted);
   font-size: 1.05rem;
@@ -395,7 +399,7 @@
 .project-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 42px;
 }
 
@@ -701,6 +705,10 @@
     font-size: 3.25rem;
   }
 
+  .section-heading-large h2 {
+    font-size: 2.75rem;
+  }
+
   .role {
     font-size: 1.2rem;
   }
@@ -815,6 +823,10 @@
   .section-heading h2,
   .contact-section h2 {
     font-size: 2rem;
+  }
+
+  .section-heading-large h2 {
+    font-size: 2.45rem;
   }
 
   .timeline-item {

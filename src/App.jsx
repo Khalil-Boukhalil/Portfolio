@@ -24,6 +24,7 @@ const projectIcons = {
   parking: Car,
   federated: Network,
   agents: Bot,
+  web: Code,
 }
 
 const socialLinks = [
@@ -77,10 +78,10 @@ const focusItems = [
   },
 ]
 
-function SectionHeading({ eyebrow, title, text }) {
+function SectionHeading({ eyebrow, title, text, large = false }) {
   return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
+    <div className={`section-heading ${large ? 'section-heading-large' : ''}`}>
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h2>{title}</h2>
       {text ? <p>{text}</p> : null}
     </div>
@@ -183,9 +184,8 @@ function App() {
         <section className="section" id="skills">
           <div className="container">
             <SectionHeading
-              eyebrow="Skills"
-              title="Technical toolkit for AI internships"
-              text="Grouped skills across machine learning, generative AI workflows, software development, and production-oriented tools."
+              title="Skills"
+              large
             />
             <div className="skill-category-grid">
               {skillCategories.map((category) => (
@@ -208,12 +208,11 @@ function App() {
         <section className="section section-projects" id="projects">
           <div className="container">
             <SectionHeading
-              eyebrow="Projects"
-              title="Selected AI projects"
-              text="Selected work showing practical AI engineering, generative AI workflows, and connected software systems."
+              title="Projects"
+              large
             />
             <div className="project-grid">
-              {projects.map(({ title, icon, description, technologies, links }) => {
+              {projects.map(({ title, icon, type, description, technologies, links }) => {
                 const Icon = projectIcons[icon] ?? Database
 
                 return (
@@ -222,7 +221,7 @@ function App() {
                       <span className="project-icon">
                         <Icon size={22} aria-hidden="true" />
                       </span>
-                      <span className="project-type">AI project</span>
+                      <span className="project-type">{type}</span>
                     </div>
                     <h3>{title}</h3>
                     <p>{description}</p>

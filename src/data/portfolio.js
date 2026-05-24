@@ -34,11 +34,11 @@ export const skillCategories = [
   },
   {
     title: 'Programming',
-    items: ['Python', 'JavaScript', 'HTML', 'CSS', 'Flask'],
+    items: ['Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'Flask'],
   },
   {
     title: 'Tools',
-    items: ['Docker', 'Kafka', 'MongoDB', 'Git'],
+    items: ['Docker', 'Streamlit', 'Kafka', 'MongoDB', 'Git'],
   },
 ]
 
@@ -46,33 +46,49 @@ export const projects = [
   {
     title: 'Smart Parking Management System',
     icon: 'parking',
+    type: 'AI project',
     description:
       'Connected-city application for parking availability, reservation flow, and operational visibility.',
     technologies: ['Flask', 'MongoDB', 'JavaScript', 'HTML/CSS'],
     links: {
-      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      github: 'https://github.com/Khalil-Boukhalil/BIG-DATA_Project',
       demo: '',
     },
   },
   {
     title: 'Federated Learning Projects',
     icon: 'federated',
+    type: 'AI project',
     description:
       'Privacy-aware machine learning experiments with decentralized training, client aggregation, and evaluation workflows.',
     technologies: ['Python', 'Machine Learning', 'Federated Learning'],
     links: {
-      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      github:
+        'https://github.com/Khalil-Boukhalil/Federated_Learning_TP3_Project',
       demo: '',
     },
   },
   {
     title: 'Multi-Agent Business Memo Generator',
     icon: 'agents',
+    type: 'AI project',
     description:
       'Generative AI workflow that coordinates analysis, drafting, feedback, and approval steps for professional memo writing.',
     technologies: ['LLMs', 'AI Agents', 'Python', 'Automation'],
     links: {
-      github: 'https://github.com/Khalil-Boukhalil?tab=repositories',
+      github: 'https://github.com/Khalil-Boukhalil/GenAi',
+      demo: '',
+    },
+  },
+  {
+    title: 'WildHunt',
+    icon: 'web',
+    type: 'Web project',
+    description:
+      'Full-stack web project built with a React frontend and Node.js backend.',
+    technologies: ['React', 'Node.js', 'JavaScript'],
+    links: {
+      github: 'https://github.com/Khalil-Boukhalil/WildHunt_Project_Web',
       demo: '',
     },
   },
