@@ -118,7 +118,7 @@ function App() {
             <SectionHeading
               eyebrow="About"
               title="Applied AI engineer in training"
-              text="I have a Bachelor in Computer Science and I am pursuing a Master in Artificial Intelligence for Connected Industries at CNAM Paris, with a practical focus on useful AI systems."
+              text="I am pursuing a Master in Artificial Intelligence for Connected Industries at CNAM Paris and hold a Bachelor in Computer Science, with a practical focus on useful AI systems."
             />
             <div className="about-copy">
               <p>
@@ -203,23 +203,39 @@ function App() {
               text="A transparent summary of education and project-based AI engineering experience."
             />
             <div className="timeline">
-              {experience.map(({ label, title, place, detail }) => (
-                <article className="timeline-item" key={`${label}-${title}`}>
-                  <div className="timeline-icon">
-                    {label === 'Education' ? (
-                      <GraduationCap size={22} aria-hidden="true" />
-                    ) : (
-                      <Briefcase size={22} aria-hidden="true" />
-                    )}
-                  </div>
-                  <div>
-                    <p className="timeline-label">{label}</p>
-                    <h3>{title}</h3>
-                    <p className="timeline-place">{place}</p>
-                    <p>{detail}</p>
-                  </div>
-                </article>
-              ))}
+              {experience.map(
+                ({ label, title, place, institution, period, detail }) => (
+                  <article
+                    className={`timeline-item ${
+                      label === 'Education' ? 'timeline-item-education' : ''
+                    }`}
+                    key={`${label}-${title}`}
+                  >
+                    <div className="timeline-icon">
+                      {label === 'Education' ? (
+                        <GraduationCap size={22} aria-hidden="true" />
+                      ) : (
+                        <Briefcase size={22} aria-hidden="true" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="timeline-label">{label}</p>
+                      <h3>{title}</h3>
+                      {institution || period ? (
+                        <div className="timeline-meta">
+                          {institution ? <span>{institution}</span> : null}
+                          {period ? (
+                            <span className="timeline-period">{period}</span>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <p className="timeline-place">{place}</p>
+                      )}
+                      <p className="timeline-detail">{detail}</p>
+                    </div>
+                  </article>
+                ),
+              )}
             </div>
           </div>
         </section>

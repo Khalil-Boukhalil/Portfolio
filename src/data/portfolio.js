@@ -3,7 +3,7 @@ export const profile = {
   name: 'Khalil Bou Khalil',
   role: 'AI Engineer | Master’s Student in Artificial Intelligence',
   education:
-    'Bachelor in Computer Science; Master in Artificial Intelligence for Connected Industries at CNAM Paris',
+    'Master in Artificial Intelligence for Connected Industries at CNAM Paris; Bachelor in Computer Science',
   location: 'Based in France',
   intro:
     'I build practical AI applications across machine learning, LLM workflows, AI agents, and connected-industry systems.',
@@ -63,17 +63,20 @@ export const projects = [
 export const experience = [
   {
     label: 'Education',
-    title: 'Bachelor in Computer Science',
-    place: 'Academic background',
+    title: 'Master in Artificial Intelligence for Connected Industries',
+    institution:
+      'Conservatoire national des arts et métiers (CNAM), Paris',
+    period: '2024 – 2026',
     detail:
-      'Computer science foundation covering programming, software development, databases, and core computing concepts.',
+      'Master-level training in AI methods, industrial use cases, connected systems, and applied software engineering.',
   },
   {
     label: 'Education',
-    title: 'Master in Artificial Intelligence for Connected Industries',
-    place: 'CNAM Paris',
+    title: 'Bachelor in Computer Science',
+    institution: 'Lebanese International University',
+    period: '2020 – 2024',
     detail:
-      'Master-level training in AI methods, industrial use cases, connected systems, and applied software engineering.',
+      'Computer science foundation covering programming, software development, databases, and core computing concepts.',
   },
   {
     label: 'Project-Based Experience',

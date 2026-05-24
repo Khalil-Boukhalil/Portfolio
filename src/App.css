@@ -401,8 +401,8 @@
 
 .timeline {
   display: grid;
-  gap: 16px;
-  margin-top: 42px;
+  gap: 18px;
+  margin-top: 44px;
 }
 
 .timeline-item {
@@ -416,6 +416,12 @@
   padding: 26px;
 }
 
+.timeline-item-education {
+  border-color: rgba(15, 148, 136, 0.22);
+  box-shadow: 0 14px 42px rgba(15, 23, 42, 0.05);
+  padding: 30px;
+}
+
 .timeline-label {
   color: var(--teal) !important;
   font-size: 0.78rem;
@@ -424,10 +430,43 @@
   text-transform: uppercase;
 }
 
+.timeline-item-education h3 {
+  font-size: 1.32rem;
+  line-height: 1.25;
+  margin: 12px 0 12px;
+}
+
 .timeline-place {
   color: var(--ink) !important;
   font-weight: 800;
   margin-bottom: 8px !important;
+}
+
+.timeline-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 14px;
+}
+
+.timeline-meta span {
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.timeline-period {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  color: #1d4ed8 !important;
+  padding: 5px 9px;
+}
+
+.timeline-detail {
+  color: var(--muted);
 }
 
 .contact-section {
@@ -600,6 +639,10 @@
 
   .timeline-item {
     grid-template-columns: 1fr;
+  }
+
+  .timeline-item-education {
+    padding: 24px;
   }
 
   .footer-content {
