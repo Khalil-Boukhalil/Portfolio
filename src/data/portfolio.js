@@ -77,7 +77,7 @@ export const projects = [
     technologies: ['LLMs', 'AI Agents', 'Python', 'Automation'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/GenAi',
-      demo: '',
+      demo: 'https://khalil-genai-demo.streamlit.app/',
     },
   },
   {
