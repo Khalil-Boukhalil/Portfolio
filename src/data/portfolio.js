@@ -1,15 +1,20 @@
 // Edit this file first when you want to update portfolio content.
 export const profile = {
   name: 'Khalil Bou Khalil',
-  role: "AI Engineer Intern Candidate | Master's Student in AI",
-  badge: 'Seeking AI / ML Internship',
-  education:
-    'Master in Artificial Intelligence for Connected Industries at CNAM Paris; Bachelor in Computer Science',
+  role:
+    "AI Engineering Master's Student | LLMs, AI Agents & Machine Learning",
+  badge: 'Seeking AI / Machine Learning Internship',
+  education: [
+    "Master's in Artificial Intelligence for Connected Industries - CNAM Paris",
+    "Bachelor's in Computer Science",
+  ],
   location: 'Based in France',
   intro:
-    'I build practical AI applications across machine learning, LLM workflows, AI agents, and connected-industry systems.',
+    'I build AI-powered applications across machine learning, large language models (LLMs), AI agents, intelligent automation, and full-stack systems.',
+  experienceIntro:
+    'My experience includes developing multi-agent AI workflows, machine learning pipelines, backend APIs, and production-oriented software solutions that transform ideas into working products.',
   seeking:
-    'Currently seeking AI internships where I can contribute to practical machine learning, LLM, and AI agent projects while continuing to grow as an AI engineer.',
+    'Currently seeking an AI Engineering internship where I can contribute to machine learning, LLM, AI agent, and intelligent automation projects while continuing to grow as an engineer.',
   links: {
     github: 'https://github.com/Khalil-Boukhalil',
     linkedin: 'https://fr.linkedin.com/in/khalil-bou-khalil-0587bb235',
@@ -94,7 +99,62 @@ export const projects = [
   },
 ]
 
-export const experience = [
+export const professionalExperience = [
+  {
+    position: 'AI Agents Developer Intern',
+    company: 'Safo Systems',
+    duration: 'July 2025 - September 2025',
+    location: 'Tripoli, North Governorate, Lebanon (Hybrid)',
+    icon: 'agents',
+    initials: 'SS',
+    summary:
+      'Developed AI agent workflows for business automation and document generation.',
+    description: [
+      'Developed and coordinated AI agents to automate business workflows and document generation tasks.',
+      'Designed multi-agent systems with specialized agents for analysis, drafting, validation, and human approval.',
+      'Worked extensively on prompt engineering, tool calling, agent orchestration, and controlled LLM output generation.',
+      'Integrated AI workflows with APIs and backend services to support reliable automation processes.',
+    ],
+    technologies: [
+      'Python',
+      'LLMs',
+      'AI Agents',
+      'Prompt Engineering',
+      'Tool Calling',
+      'Agent Orchestration',
+      'APIs',
+      'Automation Workflows',
+    ],
+  },
+  {
+    position: 'Full Stack Developer Intern',
+    company: 'Maarbani Tech',
+    duration: 'June 2024 - September 2024',
+    location:
+      'Miniyeh-Danniyeh District, North Governorate, Lebanon (On-site)',
+    icon: 'fullstack',
+    initials: 'MT',
+    summary:
+      'Built responsive web applications, dashboards, backend services, and database-driven features.',
+    description: [
+      'Developed and maintained responsive web applications using React.js, Node.js, and REST APIs.',
+      'Built user interfaces, dashboards, authentication systems, and backend services.',
+      'Worked with databases to store, retrieve, and manage application data efficiently.',
+      'Performed testing, debugging, performance optimization, and collaborated using Git workflows.',
+    ],
+    technologies: [
+      'React.js',
+      'Node.js',
+      'JavaScript',
+      'REST APIs',
+      'Databases',
+      'Git',
+      'Authentication Systems',
+    ],
+  },
+]
+
+export const education = [
   {
     label: 'Education',
     title: 'Master in Artificial Intelligence for Connected Industries',
@@ -111,12 +171,5 @@ export const experience = [
     period: '2020 - 2024',
     detail:
       'Computer science foundation covering programming, software development, databases, and core computing concepts.',
-  },
-  {
-    label: 'Project-Based Experience',
-    title: 'Applied AI Engineering Portfolio',
-    place: 'Academic and personal projects',
-    detail:
-      'Hands-on work across machine learning, LLM agents, federated learning, backend APIs, and data-driven web apps.',
   },
 ]

@@ -13,8 +13,9 @@ import {
 } from 'lucide-react'
 import heroVisual from './assets/ai-portfolio-visual.png'
 import {
-  experience,
+  education,
   profile,
+  professionalExperience,
   projects,
   skillCategories,
 } from './data/portfolio'
@@ -25,6 +26,11 @@ const projectIcons = {
   federated: Network,
   agents: Bot,
   web: Code,
+}
+
+const experienceIcons = {
+  agents: Bot,
+  fullstack: Code,
 }
 
 const socialLinks = [
@@ -119,6 +125,7 @@ function App() {
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -132,13 +139,16 @@ function App() {
             <h1>{profile.name}</h1>
             <p className="role">{profile.role}</p>
             <p className="hero-copy">{profile.intro}</p>
+            <p className="hero-copy">{profile.experienceIntro}</p>
             <p className="hero-copy">{profile.seeking}</p>
             <ProfileLinks />
             <div className="hero-meta" aria-label="Profile details">
-              <span>
-                <GraduationCap size={18} aria-hidden="true" />
-                {profile.education}
-              </span>
+              {profile.education.map((item) => (
+                <span key={item}>
+                  <GraduationCap size={18} aria-hidden="true" />
+                  {item}
+                </span>
+              ))}
               <span>
                 <MapPin size={18} aria-hidden="true" />
                 {profile.location}
@@ -150,20 +160,34 @@ function App() {
         <section className="section section-about" id="about">
           <div className="container about-grid">
             <SectionHeading
-              eyebrow="About"
-              title="Applied AI engineer in training"
-              text="I am pursuing a Master in Artificial Intelligence for Connected Industries at CNAM Paris and hold a Bachelor in Computer Science, with a practical focus on useful AI systems."
+              title="About"
+              large
             />
             <div className="about-copy">
               <p>
-                My work combines AI fundamentals with implementation skills:
-                model development, backend APIs, databases, event-driven tools,
-                and user-facing applications. I enjoy turning technical ideas
-                into working prototypes that can be tested, improved, and
-                deployed.
+                I am an AI Engineering Master's student at CNAM Paris,
+                specializing in Artificial Intelligence for Connected
+                Industries, with a Bachelor's degree in Computer Science.
               </p>
               <p>
-                {profile.seeking}
+                My interests focus on machine learning, large language models
+                (LLMs), AI agents, and intelligent automation. I enjoy building
+                end-to-end AI systems, from data processing and model development
+                to backend integration, deployment, and user-facing
+                applications.
+              </p>
+              <p>
+                Through academic projects and internships, I have worked on AI
+                agent systems, machine learning pipelines, full-stack
+                applications, and automation workflows. I am particularly
+                interested in developing practical AI solutions that solve
+                real-world problems and create measurable impact.
+              </p>
+              <p>
+                Currently, I am seeking an AI Engineering internship where I can
+                contribute to projects involving machine learning, LLM
+                applications, AI agents, RAG systems, and production-ready AI
+                solutions while continuing to grow as an engineer.
               </p>
             </div>
           </div>
@@ -212,68 +236,131 @@ function App() {
               large
             />
             <div className="project-grid">
-              {projects.map(({ title, icon, type, description, technologies, links }) => {
-                const Icon = projectIcons[icon] ?? Database
+              {projects.map(
+                ({ title, icon, type, description, technologies, links }) => {
+                  const Icon = projectIcons[icon] ?? Database
 
-                return (
-                  <article className="project-card" key={title}>
-                    <div className="project-card-top">
-                      <span className="project-icon">
-                        <Icon size={22} aria-hidden="true" />
-                      </span>
-                      <span className="project-type">{type}</span>
-                    </div>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <h4>Technologies</h4>
-                    <div className="project-tags">
-                      {technologies.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                    <div className="project-actions">
-                      <a
-                        className="project-link"
-                        href={links.github}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        <Code size={16} aria-hidden="true" />
-                        GitHub
-                      </a>
-                      {links.demo ? (
+                  return (
+                    <article className="project-card" key={title}>
+                      <div className="project-card-top">
+                        <span className="project-icon">
+                          <Icon size={22} aria-hidden="true" />
+                        </span>
+                        <span className="project-type">{type}</span>
+                      </div>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                      <h4>Technologies</h4>
+                      <div className="project-tags">
+                        {technologies.map((item) => (
+                          <span key={item}>{item}</span>
+                        ))}
+                      </div>
+                      <div className="project-actions">
                         <a
-                          className="project-link project-link-secondary"
-                          href={links.demo}
+                          className="project-link"
+                          href={links.github}
                           rel="noreferrer"
                           target="_blank"
                         >
-                          <Server size={16} aria-hidden="true" />
-                          Demo
+                          <Code size={16} aria-hidden="true" />
+                          GitHub
                         </a>
-                      ) : (
-                        <span className="project-link project-link-muted">
-                          <Server size={16} aria-hidden="true" />
-                          Demo pending
-                        </span>
-                      )}
-                    </div>
-                  </article>
-                )
-              })}
+                        {links.demo ? (
+                          <a
+                            className="project-link project-link-secondary"
+                            href={links.demo}
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            <Server size={16} aria-hidden="true" />
+                            Demo
+                          </a>
+                        ) : (
+                          <span className="project-link project-link-muted">
+                            <Server size={16} aria-hidden="true" />
+                            Demo pending
+                          </span>
+                        )}
+                      </div>
+                    </article>
+                  )
+                },
+              )}
             </div>
           </div>
         </section>
 
-        <section className="section" id="experience">
+        <section className="section section-experience" id="experience">
           <div className="container">
             <SectionHeading
-              eyebrow="Experience / Education"
-              title="Current background"
-              text="A transparent summary of education and project-based AI engineering experience."
+              title="Experience"
+              large
+              text="Professional internship experience across AI agents, LLM workflows, automation, and full-stack software development."
+            />
+            <div className="experience-timeline">
+              {professionalExperience.map(
+                ({
+                  position,
+                  company,
+                  duration,
+                  location,
+                  icon,
+                  initials,
+                  summary,
+                  description,
+                  technologies,
+                }) => {
+                  const Icon = experienceIcons[icon] ?? Briefcase
+
+                  return (
+                    <article className="experience-card" key={`${company}-${position}`}>
+                      <div className="experience-marker" aria-hidden="true">
+                        <Icon size={22} />
+                      </div>
+                      <div className="experience-content">
+                        <div className="experience-header">
+                          <div className="company-lockup">
+                            <span className="company-logo">{initials}</span>
+                            <div>
+                              <h3>{position}</h3>
+                              <p>{company}</p>
+                            </div>
+                          </div>
+                          <span className="experience-date">{duration}</span>
+                        </div>
+                        <p className="experience-location">
+                          <MapPin size={16} aria-hidden="true" />
+                          {location}
+                        </p>
+                        <p className="experience-summary">{summary}</p>
+                        <ul className="experience-list">
+                          {description.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                        <div className="experience-tags" aria-label="Technologies used">
+                          {technologies.map((technology) => (
+                            <span key={technology}>{technology}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+                  )
+                },
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="education">
+          <div className="container">
+            <SectionHeading
+              title="Education"
+              large
             />
             <div className="timeline">
-              {experience.map(
+              {education.map(
                 ({ label, title, place, institution, period, detail }) => (
                   <article
                     className={`timeline-item ${
