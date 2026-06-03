@@ -57,7 +57,6 @@ export const projects = [
     technologies: ['Flask', 'MongoDB', 'JavaScript', 'HTML/CSS'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/BIG-DATA_Project',
-      demo: '',
     },
   },
   {
@@ -70,7 +69,6 @@ export const projects = [
     links: {
       github:
         'https://github.com/Khalil-Boukhalil/Federated_Learning_TP3_Project',
-      demo: '',
     },
   },
   {
@@ -82,7 +80,6 @@ export const projects = [
     technologies: ['LLMs', 'AI Agents', 'Python', 'Automation'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/GenAi',
-      demo: 'https://khalil-genai-demo.streamlit.app/',
     },
   },
   {
@@ -94,7 +91,6 @@ export const projects = [
     technologies: ['React', 'Node.js', 'JavaScript'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/WildHunt_Project_Web',
-      demo: '',
     },
   },
 ]

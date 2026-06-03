@@ -518,25 +518,6 @@
   border-color: var(--blue);
 }
 
-.project-link-secondary {
-  background: #ffffff;
-  border-color: var(--line);
-  color: var(--ink);
-}
-
-.project-link-secondary:hover,
-.project-link-secondary:focus-visible {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #1d4ed8;
-}
-
-.project-link-muted {
-  background: #f8fafc;
-  border-color: var(--line);
-  color: var(--muted-light);
-}
-
 .experience-timeline {
   display: grid;
   gap: 24px;
@@ -1051,13 +1032,11 @@
   }
 
   .project-actions,
-  .project-link,
-  .project-link-muted {
+  .project-link {
     width: 100%;
   }
 
-  .project-link,
-  .project-link-muted {
+  .project-link {
     justify-content: center;
   }
 

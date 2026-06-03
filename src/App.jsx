@@ -266,22 +266,6 @@ function App() {
                           <Code size={16} aria-hidden="true" />
                           GitHub
                         </a>
-                        {links.demo ? (
-                          <a
-                            className="project-link project-link-secondary"
-                            href={links.demo}
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            <Server size={16} aria-hidden="true" />
-                            Demo
-                          </a>
-                        ) : (
-                          <span className="project-link project-link-muted">
-                            <Server size={16} aria-hidden="true" />
-                            Demo pending
-                          </span>
-                        )}
                       </div>
                     </article>
                   )
