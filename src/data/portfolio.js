@@ -168,7 +168,7 @@ export const education = [
     label: 'Education',
     title: 'Bachelor in Computer Science',
     institution: 'Lebanese International University',
-    period: '2020 - 2024',
+    period: '2021 - 2024',
     detail:
       'Computer science foundation covering programming, software development, databases, and core computing concepts.',
   },
