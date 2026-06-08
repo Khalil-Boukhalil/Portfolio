@@ -124,7 +124,7 @@ export const professionalExperience = [
   },
   {
     position: 'Full Stack Developer Intern',
-    company: 'Maarbani Tech',
+    company: 'MA Tech',
     duration: 'June 2024 - September 2024',
     location:
       'Miniyeh-Danniyeh District, North Governorate, Lebanon (On-site)',
