@@ -20,7 +20,7 @@ export function Contact() {
             Contact
           </p>
           <h2 id="contact-title" className="contact__title">
-            Available for a 4-month AI/ML end-of-studies internship.
+            Available for a 4- to 6-month AI/ML end-of-studies internship.
           </h2>
           <p className="contact__lede measure">
             I am looking for opportunities involving machine learning, LLM applications, AI agents,

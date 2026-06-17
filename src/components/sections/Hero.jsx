@@ -15,7 +15,7 @@ export function Hero() {
         <div className="hero__copy">
           <p className="status-pill hero__status">
             <span className="pulse-dot" aria-hidden="true" />
-            Available — seeking a 4-month AI/ML internship
+            Available — seeking a 4- to 6-month AI/ML internship
           </p>
           <p className="hero__eyebrow">{profile.role}</p>
           <h1 className="hero__title">
