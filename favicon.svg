@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="kb" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0A0A0F"/>
+  <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="14.75" fill="none" stroke="url(#kb)" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="32" y="34" font-family="'Space Grotesk','Segoe UI',sans-serif" font-size="29" font-weight="700" letter-spacing="-1" fill="url(#kb)" text-anchor="middle" dominant-baseline="central">KB</text>
+</svg>
