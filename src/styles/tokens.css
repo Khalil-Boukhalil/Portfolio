@@ -1,0 +1,134 @@
+/* ============================================================
+   Design tokens — single source of truth.
+   Dark / premium · electric indigo → violet · cool-tinted neutrals.
+   No hard-coded hex anywhere else in the codebase.
+   ============================================================ */
+:root {
+  color-scheme: dark;
+
+  /* ---- Surfaces (layered elevation) ---- */
+  --bg: #0a0a0f;
+  --bg-deep: #07070c;
+  --surface-0: #0c0c13;
+  --surface-1: #101019;
+  --surface-2: #15151f;
+  --surface-3: #1c1c2a;
+
+  /* ---- Glass overlays ---- */
+  --glass-1: rgba(255, 255, 255, 0.03);
+  --glass-2: rgba(255, 255, 255, 0.045);
+  --glass-3: rgba(255, 255, 255, 0.07);
+  --nav-glass: rgba(10, 10, 15, 0.62);
+
+  /* ---- Borders ---- */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(139, 92, 246, 0.35);
+
+  /* ---- Text ---- */
+  --text-primary: #f5f6fa;
+  --text-body: #c8cad6;
+  --text-muted: #8a8fa3;
+  --text-faint: #767a8c;
+
+  /* ---- Accent ramp (indigo → violet) ---- */
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8; /* accent TEXT / links at body size (AA pass) */
+  --accent-500: #6366f1; /* fills / icons / borders / large text only */
+  --violet-500: #8b5cf6;
+  --violet-600: #7c3aed;
+  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-accent-soft: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+
+  /* ---- Signal (the only non-indigo accent) ---- */
+  --signal: #34d399;
+  --signal-text: #6ee7b7;
+  --signal-bg: rgba(52, 211, 153, 0.1);
+  --signal-border: rgba(52, 211, 153, 0.3);
+
+  --selection-bg: rgba(139, 92, 246, 0.32);
+
+  /* ---- Typography families ---- */
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+
+  /* ---- Type scale (fluid) ---- */
+  --fs-display-hero: clamp(2.75rem, 6vw + 1rem, 5rem);
+  --fs-display-1: clamp(2rem, 3.5vw + 1rem, 3.1rem);
+  --fs-heading-2: clamp(1.25rem, 1vw + 1rem, 1.6rem);
+  --fs-heading-3: clamp(1.05rem, 0.5vw + 0.9rem, 1.2rem);
+  --fs-body-lg: clamp(1.05rem, 0.4vw + 0.95rem, 1.2rem);
+  --fs-body: 1rem;
+  --fs-body-sm: 0.9375rem;
+  --fs-metric: clamp(2rem, 2.5vw + 1rem, 2.75rem);
+  --fs-label: 0.8125rem;
+  --fs-eyebrow: 0.75rem;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+  --space-11: 128px;
+
+  /* ---- Layout rhythm ---- */
+  --section-pad: clamp(72px, 10vw, 128px);
+  --section-pad-sm: clamp(56px, 8vw, 96px);
+  --card-pad: clamp(24px, 3vw, 32px);
+  --container: 1120px;
+  --container-wide: 1240px;
+  --measure: 68ch;
+  --inline-pad: clamp(20px, 5vw, 40px);
+  --scroll-margin: 80px;
+  --intro-gap: clamp(40px, 6vw, 72px);
+
+  /* ---- Radius ---- */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 999px;
+
+  /* ---- Depth: shadows / glows / borders for dark UI ---- */
+  --highlight-top: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-md: 0 8px 24px -10px rgba(0, 0, 0, 0.65);
+  --shadow-lg: 0 28px 70px -24px rgba(0, 0, 0, 0.75);
+  --shadow-lift: 0 18px 50px -16px rgba(99, 102, 241, 0.35);
+  --glow-accent: 0 0 0 1px rgba(99, 102, 241, 0.4),
+    0 12px 48px -12px rgba(99, 102, 241, 0.45);
+  --glow-soft: 0 0 60px -10px rgba(99, 102, 241, 0.3);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px rgba(99, 102, 241, 0.75);
+  --blur-glass: blur(14px) saturate(140%);
+  --blur-nav: blur(16px) saturate(160%);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 240ms;
+  --dur-4: 560ms;
+  --dur-5: 800ms;
+  --reveal-rise: 18px;
+  --stagger-step: 70ms;
+  --magnetic-max: 6px;
+
+  /* ---- z-index scale ---- */
+  --z-hero-bg: 0;
+  --z-content: 1;
+  --z-nav: 100;
+  --z-overlay: 190;
+  --z-sheet: 200;
+}

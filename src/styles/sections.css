@@ -1,0 +1,185 @@
+/* ============================================================
+   About · Capabilities · Skills
+   ============================================================ */
+
+/* ---- About ---- */
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.about__intro {
+  position: sticky;
+  top: calc(72px + 24px);
+}
+
+.about .section-intro {
+  margin-bottom: 0;
+}
+
+.about__panel {
+  display: grid;
+  gap: var(--space-5);
+  padding-left: clamp(20px, 3vw, 34px);
+  border-left: 2px solid rgba(99, 102, 241, 0.35);
+}
+
+.about__panel p {
+  max-width: var(--measure);
+  color: var(--text-body);
+  font-size: var(--fs-body-lg);
+  line-height: 1.75;
+}
+
+.about__tags {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 860px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about__intro {
+    position: static;
+  }
+}
+
+/* ---- Capabilities ---- */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cap-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cap-card__title {
+  margin-top: var(--space-2);
+  font-size: var(--fs-heading-2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.cap-card__text {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.workflow {
+  margin-top: 16px;
+}
+
+.workflow__title {
+  margin: var(--space-3) 0 var(--space-5);
+  font-size: var(--fs-heading-2);
+  font-weight: 600;
+}
+
+.workflow__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.workflow__step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-body);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.workflow__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--accent-400);
+}
+
+@media (max-width: 860px) {
+  .cap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .workflow__steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .workflow__step {
+    border-top: none;
+    border-left: 2px solid var(--border-subtle);
+    padding: 4px 0 16px 16px;
+  }
+
+  .workflow__step:last-child {
+    padding-bottom: 0;
+  }
+}
+
+/* ---- Skills ---- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.skill-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-card__title {
+  font-size: var(--fs-heading-3);
+  font-weight: 600;
+}
+
+/* Subtle per-category tint within the indigo/violet family (no rainbow). */
+.skill-card--ai .icon-tile {
+  color: var(--accent-400);
+  background: rgba(99, 102, 241, 0.14);
+}
+.skill-card--genai .icon-tile {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.16);
+}
+.skill-card--prog .icon-tile {
+  color: #93c5fd;
+  background: rgba(96, 165, 250, 0.14);
+}
+.skill-card--tools .icon-tile {
+  color: var(--accent-300);
+  background: rgba(129, 140, 248, 0.12);
+}
+
+@media (max-width: 1199px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

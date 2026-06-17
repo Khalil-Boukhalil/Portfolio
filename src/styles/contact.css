@@ -1,0 +1,120 @@
+/* ============================================================
+   Contact — closing CTA band with the strongest single glow.
+   ============================================================ */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__glow {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: min(680px, 92%);
+  height: 380px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%);
+  filter: blur(24px);
+}
+
+.contact__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.contact__title {
+  margin: var(--space-4) 0 var(--space-5);
+  font-size: var(--fs-display-1);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.contact__lede {
+  margin-bottom: var(--space-6);
+  color: var(--text-body);
+  font-size: var(--fs-body-lg);
+  line-height: 1.7;
+}
+
+.contact__card {
+  padding: 14px;
+}
+
+.contact__channels {
+  display: grid;
+  gap: 8px;
+}
+
+.contact__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  background: var(--glass-3);
+  border: 1px solid var(--border);
+  transition:
+    border-color var(--dur-2) var(--ease-standard),
+    background-color var(--dur-2) var(--ease-standard),
+    box-shadow var(--dur-2) var(--ease-out);
+}
+
+a.contact__row:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--glow-accent);
+}
+
+.contact__row--static {
+  background: var(--glass-1);
+}
+
+.contact__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.contact__channel-text {
+  display: grid;
+  min-width: 0;
+}
+
+.contact__channel-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.contact__channel-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-body-sm);
+  color: var(--text-body);
+}
+
+a.contact__row .contact__channel-value {
+  color: var(--accent-400);
+}
+
+.contact__row > svg:last-child {
+  color: var(--accent-400);
+}
+
+@media (max-width: 860px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__cta {
+    width: 100%;
+  }
+}

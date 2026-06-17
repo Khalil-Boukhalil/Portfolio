@@ -15,6 +15,25 @@ export const profile = {
     'My experience includes developing multi-agent AI workflows, machine learning pipelines, backend APIs, and production-oriented software solutions that transform ideas into working products.',
   seeking:
     'Currently seeking an AI Engineering internship where I can contribute to machine learning, LLM, AI agent, and intelligent automation projects while continuing to grow as an engineer.',
+  proofPoints: [
+    {
+      value: '2',
+      label: 'Internships across AI agents and full-stack product work',
+    },
+    {
+      value: '2026',
+      label: "AI Master's candidate at CNAM Paris",
+    },
+    {
+      value: '4',
+      label: 'Applied projects across LLMs, ML systems, and web apps',
+    },
+  ],
+  snapshots: [
+    'Based in France',
+    'Open to AI engineering internships',
+    'Focused on LLM apps, agents, and ML systems',
+  ],
   links: {
     github: 'https://github.com/Khalil-Boukhalil',
     linkedin: 'https://fr.linkedin.com/in/khalil-bou-khalil-0587bb235',
@@ -54,6 +73,11 @@ export const projects = [
     type: 'AI project',
     description:
       'Connected-city application for parking availability, reservation flow, and operational visibility.',
+    highlights: [
+      'Database-backed parking availability and reservation flow',
+      'Operational interface for visibility across connected parking data',
+      'Full-stack delivery with Flask, MongoDB, and responsive UI work',
+    ],
     technologies: ['Flask', 'MongoDB', 'JavaScript', 'HTML/CSS'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/BIG-DATA_Project',
@@ -65,6 +89,11 @@ export const projects = [
     type: 'AI project',
     description:
       'Privacy-aware machine learning experiments with decentralized training, client aggregation, and evaluation workflows.',
+    highlights: [
+      'Decentralized training experiments with privacy-aware model updates',
+      'Client aggregation and evaluation workflows for ML comparison',
+      'Practical exploration of distributed AI system behavior',
+    ],
     technologies: ['Python', 'Machine Learning', 'Federated Learning'],
     links: {
       github:
@@ -77,6 +106,11 @@ export const projects = [
     type: 'AI project',
     description:
       'Generative AI workflow that coordinates analysis, drafting, feedback, and approval steps for professional memo writing.',
+    highlights: [
+      'Role-based AI agents for analysis, drafting, validation, and approval',
+      'Structured LLM workflow for reliable professional document output',
+      'Automation path designed around human review and business context',
+    ],
     technologies: ['LLMs', 'AI Agents', 'Python', 'Automation'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/GenAi',
@@ -88,6 +122,11 @@ export const projects = [
     type: 'Web project',
     description:
       'Full-stack web project built with a React frontend and Node.js backend.',
+    highlights: [
+      'React frontend paired with a Node.js backend service',
+      'End-to-end feature implementation across UI and API layers',
+      'Practice in product structure, routing, and full-stack integration',
+    ],
     technologies: ['React', 'Node.js', 'JavaScript'],
     links: {
       github: 'https://github.com/Khalil-Boukhalil/WildHunt_Project_Web',

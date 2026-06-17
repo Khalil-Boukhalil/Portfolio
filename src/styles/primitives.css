@@ -1,0 +1,291 @@
+/* ============================================================
+   Primitives — section rhythm, intros, cards, buttons, tags, chips.
+   ============================================================ */
+
+/* Hover-lift amounts as tokens so reduced-motion can zero them globally. */
+:root {
+  --lift: -4px;
+  --lift-sm: -2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --lift: 0px;
+    --lift-sm: 0px;
+  }
+}
+
+/* ---- Sections ---- */
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+}
+
+.section--surface {
+  background: var(--surface-0);
+}
+
+.section--surface + .section--surface {
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ---- Section intro ---- */
+.section-intro {
+  max-width: 760px;
+  margin-bottom: var(--intro-gap);
+}
+
+.section-intro--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-intro--center .section-intro__lede {
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-400);
+}
+
+.eyebrow__num,
+.eyebrow__slash {
+  color: var(--text-faint);
+}
+
+.section-intro__title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-display-1);
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+.section-intro__lede {
+  margin-top: var(--space-5);
+  color: var(--text-body);
+  font-size: var(--fs-body-lg);
+  line-height: 1.7;
+}
+
+/* ---- Cards ---- */
+.card {
+  padding: var(--card-pad);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--highlight-top), var(--shadow-md);
+}
+
+.card--hover {
+  transition:
+    transform var(--dur-3) var(--ease-out),
+    border-color var(--dur-3) var(--ease-standard),
+    box-shadow var(--dur-3) var(--ease-out);
+}
+
+.card--hover:hover,
+.card--hover:focus-within {
+  transform: translateY(var(--lift));
+  border-color: var(--border-accent);
+  box-shadow: var(--highlight-top), var(--shadow-md), var(--shadow-lift);
+}
+
+.card--hover:active {
+  transform: translateY(var(--lift)) scale(0.992);
+}
+
+/* ---- Glass card ---- */
+.glass-card {
+  background: var(--glass-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--highlight-top), var(--shadow-md);
+  -webkit-backdrop-filter: var(--blur-glass);
+  backdrop-filter: var(--blur-glass);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card {
+    background: var(--surface-2);
+  }
+}
+
+/* ---- Icon tile ---- */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: var(--r-md);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid var(--border);
+  color: var(--accent-400);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform var(--dur-2) var(--ease-out),
+    background-color var(--dur-2) var(--ease-standard),
+    border-color var(--dur-2) var(--ease-standard),
+    box-shadow var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-standard);
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.btn--lg {
+  min-height: 54px;
+  padding: 0 26px;
+  font-size: var(--fs-body);
+}
+
+.btn--primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  box-shadow: 0 10px 30px -12px rgba(99, 102, 241, 0.65);
+}
+
+.btn--primary:hover {
+  transform: translateY(var(--lift-sm));
+  box-shadow: 0 16px 42px -12px rgba(99, 102, 241, 0.7);
+}
+
+.btn--secondary {
+  background: var(--glass-2);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.btn--secondary:hover {
+  transform: translateY(var(--lift-sm));
+  background: var(--glass-3);
+  border-color: var(--border-strong);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-body);
+}
+
+.btn--ghost:hover {
+  background: var(--glass-1);
+  color: var(--text-primary);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn__ext {
+  opacity: 0.85;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.btn:hover .btn__ext {
+  transform: translate(2px, -2px);
+}
+
+/* ---- Tags / chips ---- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+  background: var(--glass-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition:
+    color var(--dur-2) var(--ease-standard),
+    border-color var(--dur-2) var(--ease-standard),
+    background-color var(--dur-2) var(--ease-standard);
+}
+
+.tag:hover {
+  color: var(--text-body);
+  border-color: var(--border-strong);
+  background: var(--glass-3);
+}
+
+/* ---- Availability pulse dot ---- */
+.pulse-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: var(--r-full);
+  background: var(--signal);
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45);
+  animation: pulse-ring 2400ms var(--ease-in-out) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot {
+    animation: none;
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
+  }
+}
+
+/* ---- Status pill (availability) ---- */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: var(--r-full);
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  color: var(--signal-text);
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+}

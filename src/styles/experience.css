@@ -1,0 +1,237 @@
+/* ============================================================
+   Experience (timeline) · Education
+   ============================================================ */
+.exp-timeline {
+  position: relative;
+  display: grid;
+  gap: 20px;
+}
+
+.exp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accent-500) 12%,
+    var(--violet-500) 88%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.exp-item {
+  position: relative;
+  padding-left: 56px;
+}
+
+.exp-item__node {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent-500);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  transform: scale(0);
+  transition: transform var(--dur-4) var(--ease-out);
+}
+
+.exp-item__node::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+}
+
+.exp-item.is-visible .exp-item__node {
+  transform: scale(1);
+}
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.exp-card__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.exp-card__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  border-radius: var(--r-md);
+  background: var(--gradient-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.exp-card__role {
+  font-size: var(--fs-heading-2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.exp-card__company {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+}
+
+.exp-card__company svg {
+  color: var(--accent-400);
+}
+
+.exp-card__duration {
+  padding: 7px 12px;
+  border-radius: var(--r-full);
+  background: var(--glass-2);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--text-body);
+  white-space: nowrap;
+}
+
+.exp-card__loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+}
+
+.exp-card__loc svg {
+  color: var(--text-faint);
+}
+
+.exp-card__summary {
+  color: var(--text-body);
+  font-size: var(--fs-body-lg);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.exp-card__list {
+  display: grid;
+  gap: 8px;
+}
+
+.exp-card__list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.exp-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-500);
+}
+
+.exp-card__tags {
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .exp-timeline::before,
+  .exp-item__node {
+    display: none;
+  }
+
+  .exp-item {
+    padding-left: 0;
+  }
+
+  .exp-card {
+    border-left: 3px solid var(--accent-500);
+  }
+}
+
+@media (max-width: 560px) {
+  .exp-card__head {
+    grid-template-columns: auto 1fr;
+  }
+
+  .exp-card__duration {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* ---- Education ---- */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.edu-card .icon-tile {
+  margin-bottom: 6px;
+}
+
+.edu-card__period {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+}
+
+.edu-card__title {
+  font-size: var(--fs-heading-2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.edu-card__inst {
+  color: var(--accent-400);
+  font-weight: 500;
+  font-size: var(--fs-body-sm);
+}
+
+.edu-card__detail {
+  margin-top: 4px;
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+}
