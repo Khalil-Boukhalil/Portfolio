@@ -13,7 +13,7 @@ export const profile = {
     github: 'https://github.com/Khalil-Boukhalil',
     linkedin: 'https://www.linkedin.com/in/khalil-bou-khalil-0587bb235/',
     portfolio: 'https://khalil-boukhalil.github.io/Portfolio/',
-    cv: publicPath('Khalil_Bou_Khalil_CV.pdf'),
+    cv: `${publicPath('Khalil_Bou_Khalil_CV.pdf')}?v=0c1c48f8`,
   },
   contact: {
     email: 'khalil_bou_khalil@hotmail.com',
