@@ -15,7 +15,7 @@ export function Section({
       className={['section', `section--${tone}`, className].filter(Boolean).join(' ')}
       {...rest}
     >
-      <div className={['container', wide && 'container-wide'].filter(Boolean).join(' ')}>
+      <div className={['container', wide && 'container--wide'].filter(Boolean).join(' ')}>
         {children}
       </div>
     </section>

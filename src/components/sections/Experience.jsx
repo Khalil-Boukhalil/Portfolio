@@ -5,21 +5,20 @@ import { ExperienceItem } from './ExperienceItem'
 
 export function Experience() {
   return (
-    <Section id="experience" tone="surface" labelledBy="experience-title" className="experience">
+    <Section id="experience" labelledBy="experience-title" className="experience">
       <SectionIntro
-        index="05"
-        eyebrow="Experience"
-        title="Internships across AI agents and full-stack delivery."
+        eyebrow="Professional experience"
+        title="A clear progression toward applied AI engineering."
         titleId="experience-title"
-        lede="Role, company, and impact — structured for quick scanning."
+        lede="Current work centres on a multi-model internal AI platform, backed by earlier experience in agent workflows and full-stack application delivery."
       />
 
-      <ol className="exp-timeline list-reset">
-        {professionalExperience.map((experience, i) => (
+      <ol className="experience__list list-reset">
+        {professionalExperience.map((item, index) => (
           <ExperienceItem
-            experience={experience}
-            index={i}
-            key={`${experience.company}-${experience.position}`}
+            key={`${item.company}-${item.position}`}
+            experience={item}
+            index={index}
           />
         ))}
       </ol>

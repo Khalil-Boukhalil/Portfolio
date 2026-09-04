@@ -1,46 +1,48 @@
 import { MapPin } from 'lucide-react'
-import { experienceIcons, fallbackExperienceIcon } from '../../data/iconMap'
 import { Reveal } from '../primitives/Reveal'
 import { TagList } from '../primitives/Tag'
 
 export function ExperienceItem({ experience, index }) {
-  const Icon = experienceIcons[experience.icon] ?? fallbackExperienceIcon
-
   return (
-    <Reveal as="li" index={index} className="exp-item">
-      <span className="exp-item__node" aria-hidden="true" />
-      <article className="exp-card card card--hover">
-        <div className="exp-card__head">
-          <span className="exp-card__logo" aria-hidden="true">
-            {experience.initials}
-          </span>
-          <div className="exp-card__headings">
-            <h3 className="exp-card__role">{experience.position}</h3>
-            <p className="exp-card__company">
-              <Icon size={15} aria-hidden="true" />
-              {experience.company}
-            </p>
-          </div>
-          <span className="exp-card__duration">{experience.duration}</span>
+    <Reveal as="li" index={index} className="experience-item">
+      <article
+        id={experience.current ? 'ctcarch' : undefined}
+        className={['experience-card', experience.current && 'is-current'].filter(Boolean).join(' ')}
+      >
+        <div className="experience-card__rail" aria-hidden="true">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <i />
         </div>
 
-        <p className="exp-card__loc">
-          <MapPin size={15} aria-hidden="true" />
-          {experience.location}
-        </p>
-        <p className="exp-card__summary measure">{experience.summary}</p>
+        <div className="experience-card__content">
+          <div className="experience-card__header">
+            <div>
+              <p className="experience-card__company">
+                {experience.company}
+                {experience.current ? <span>Current</span> : null}
+              </p>
+              <h3>{experience.position}</h3>
+            </div>
+            <time>{experience.duration}</time>
+          </div>
 
-        <ul className="exp-card__list list-reset">
-          {experience.description.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+          <p className="experience-card__location">
+            <MapPin size={15} aria-hidden="true" />
+            {experience.location}
+          </p>
 
-        <TagList
-          items={experience.technologies}
-          label={`${experience.company} technologies`}
-          className="exp-card__tags"
-        />
+          <ul className="experience-card__list">
+            {experience.description.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <TagList
+            items={experience.technologies}
+            label={`${experience.company} technologies`}
+            className="experience-card__tags"
+          />
+        </div>
       </article>
     </Reveal>
   )

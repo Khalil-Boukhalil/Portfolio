@@ -1,14 +1,13 @@
-import { useHeaderScrolled } from './hooks/useHeaderScrolled'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
-import { About } from './components/sections/About'
-import { Capabilities } from './components/sections/Capabilities'
-import { Skills } from './components/sections/Skills'
+import { Profile } from './components/sections/Profile'
 import { Projects } from './components/sections/Projects'
 import { Experience } from './components/sections/Experience'
+import { Skills } from './components/sections/Skills'
 import { Education } from './components/sections/Education'
 import { Contact } from './components/sections/Contact'
+import { useHeaderScrolled } from './hooks/useHeaderScrolled'
 
 export default function App() {
   const [sentinelRef, scrolled] = useHeaderScrolled()
@@ -16,7 +15,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to content
+        Skip to main content
       </a>
       <span ref={sentinelRef} className="scroll-sentinel" aria-hidden="true" />
 
@@ -24,11 +23,10 @@ export default function App() {
 
       <main id="main">
         <Hero />
-        <About />
-        <Capabilities />
-        <Skills />
+        <Profile />
         <Projects />
         <Experience />
+        <Skills />
         <Education />
         <Contact />
       </main>

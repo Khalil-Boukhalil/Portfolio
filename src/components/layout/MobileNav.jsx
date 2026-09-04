@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
-import { Send, X } from 'lucide-react'
-import { profile } from '../../data/portfolio'
+import { FileText, Mail, X } from 'lucide-react'
 import { navItems } from '../../data/navigation'
+import { profile } from '../../data/portfolio'
 import { useScrollLock } from '../../hooks/useScrollLock'
 
-const FOCUSABLE = 'a[href], button:not([disabled])'
+const focusableSelector = 'a[href], button:not([disabled])'
 
 export function MobileNav({ open, onClose, activeId }) {
   const sheetRef = useRef(null)
@@ -13,21 +13,24 @@ export function MobileNav({ open, onClose, activeId }) {
   useScrollLock(open)
 
   useEffect(() => {
-    if (!open) return
-    const sheet = sheetRef.current
-    restoreFocusRef.current = document.activeElement
-    sheet?.querySelector(FOCUSABLE)?.focus()
+    if (!open) return undefined
 
-    const onKeyDown = (event) => {
+    restoreFocusRef.current = document.activeElement
+    const sheet = sheetRef.current
+    sheet?.querySelector(focusableSelector)?.focus()
+
+    const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         onClose()
         return
       }
+
       if (event.key !== 'Tab') return
-      const items = Array.from(sheet?.querySelectorAll(FOCUSABLE) ?? [])
-      if (!items.length) return
-      const first = items[0]
-      const last = items[items.length - 1]
+      const focusable = Array.from(sheet?.querySelectorAll(focusableSelector) ?? [])
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault()
         last.focus()
@@ -37,46 +40,46 @@ export function MobileNav({ open, onClose, activeId }) {
       }
     }
 
-    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('keydown', handleKeyDown)
       restoreFocusRef.current?.focus?.()
     }
   }, [open, onClose])
 
   return (
-    <div className={['mobile-nav', open && 'is-open'].filter(Boolean).join(' ')} aria-hidden={!open}>
-      <div className="mobile-nav__overlay" onClick={onClose} />
+    <div
+      className={['mobile-nav', open && 'is-open'].filter(Boolean).join(' ')}
+      aria-hidden={!open}
+      inert={!open}
+    >
+      <div className="mobile-nav__backdrop" onClick={onClose} aria-hidden="true" />
       <div
         className="mobile-nav__sheet"
         id="mobile-nav"
         ref={sheetRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label="Navigation menu"
       >
-        <div className="mobile-nav__head">
-          <span className="mobile-nav__title">Menu</span>
-          <button
-            type="button"
-            className="mobile-nav__close"
-            aria-label="Close menu"
-            onClick={onClose}
-          >
+        <div className="mobile-nav__header">
+          <span>Navigate</span>
+          <button type="button" aria-label="Close navigation menu" onClick={onClose}>
             <X size={22} aria-hidden="true" />
           </button>
         </div>
 
-        <nav aria-label="Mobile">
+        <nav aria-label="Mobile navigation">
           <ul className="mobile-nav__links list-reset">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   className={activeId === item.id ? 'is-active' : undefined}
-                  aria-current={activeId === item.id ? 'page' : undefined}
+                  aria-current={activeId === item.id ? 'location' : undefined}
                   onClick={onClose}
                 >
+                  <span aria-hidden="true">0{index + 1}</span>
                   {item.label}
                 </a>
               </li>
@@ -84,10 +87,16 @@ export function MobileNav({ open, onClose, activeId }) {
           </ul>
         </nav>
 
-        <a className="btn btn--primary mobile-nav__cta" href={profile.links.email} onClick={onClose}>
-          <Send size={18} aria-hidden="true" />
-          Get in touch
-        </a>
+        <div className="mobile-nav__actions">
+          <a href={profile.links.cv} target="_blank" rel="noreferrer" onClick={onClose}>
+            <FileText size={18} aria-hidden="true" />
+            View CV
+          </a>
+          <a href={profile.links.email} onClick={onClose}>
+            <Mail size={18} aria-hidden="true" />
+            Email Khalil
+          </a>
+        </div>
       </div>
     </div>
   )

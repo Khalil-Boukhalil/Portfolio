@@ -1,185 +1,300 @@
-/* ============================================================
-   About · Capabilities · Skills
-   ============================================================ */
+.profile-section {
+  padding-block: clamp(72px, 8vw, 108px);
+  background: var(--surface);
+}
 
-/* ---- About ---- */
-.about__grid {
+.profile-section__grid {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: start;
+  gap: clamp(44px, 7vw, 98px);
 }
 
-.about__intro {
-  position: sticky;
-  top: calc(72px + 24px);
+.profile-section__heading h2 {
+  max-width: 570px;
+  margin-top: 16px;
+  font-size: clamp(2rem, 3.6vw, 3.55rem);
 }
 
-.about .section-intro {
-  margin-bottom: 0;
-}
-
-.about__panel {
-  display: grid;
-  gap: var(--space-5);
-  padding-left: clamp(20px, 3vw, 34px);
-  border-left: 2px solid rgba(99, 102, 241, 0.35);
-}
-
-.about__panel p {
-  max-width: var(--measure);
-  color: var(--text-body);
-  font-size: var(--fs-body-lg);
+.profile-section__body > p {
+  max-width: 680px;
+  color: var(--text-soft);
+  font-size: clamp(1.05rem, 1.7vw, 1.24rem);
   line-height: 1.75;
 }
 
-.about__tags {
-  margin-top: var(--space-2);
-}
-
-@media (max-width: 860px) {
-  .about__grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .about__intro {
-    position: static;
-  }
-}
-
-/* ---- Capabilities ---- */
-.cap-grid {
+.progression {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 16px;
+  margin-top: 40px;
 }
 
-.cap-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.cap-card__title {
-  margin-top: var(--space-2);
-  font-size: var(--fs-heading-2);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-}
-
-.cap-card__text {
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.workflow {
-  margin-top: 16px;
-}
-
-.workflow__title {
-  margin: var(--space-3) 0 var(--space-5);
-  font-size: var(--fs-heading-2);
-  font-weight: 600;
-}
-
-.workflow__steps {
+.progression li {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 10px;
+  min-width: 0;
+}
+
+.progression__index {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.progression__line {
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.progression li:not(:last-child) .progression__line::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin-top: -2px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.progression li > div {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 2px;
+  margin-top: 12px;
+  padding-right: 18px;
+  line-height: 1.42;
+}
+
+.progression strong {
+  color: var(--text);
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.progression div span {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+}
+
+.skills__layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(54px, 8vw, 110px);
+}
+
+.skills .section-intro {
+  position: sticky;
+  top: calc(var(--nav-height) + 42px);
+  margin-bottom: 0;
+}
+
+.skills__groups {
+  border-top: 1px solid var(--border-strong);
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.45fr) minmax(0, 1fr);
+  gap: 28px;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-group__heading {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.skill-group__heading > span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+}
+
+.skill-group__heading h3 {
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.skill-group .tag-list {
+  align-content: start;
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
   gap: 18px;
 }
 
-.workflow__step {
+.education__degrees {
+  display: grid;
+  gap: 14px;
+}
+
+.degree {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.degree__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--accent-line);
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.degree__topline {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-subtle);
-  color: var(--text-body);
-  font-weight: 500;
-  line-height: 1.5;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
 }
 
-.workflow__num {
+.degree__topline p {
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.degree__topline time {
+  flex: 0 0 auto;
+  color: var(--text-faint);
   font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  color: var(--accent-400);
+  font-size: 0.7rem;
 }
 
-@media (max-width: 860px) {
-  .cap-grid {
+.degree h3 {
+  max-width: 680px;
+  margin-top: 8px;
+  font-size: clamp(1.12rem, 2vw, 1.4rem);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.degree__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--text-faint);
+  font-size: 0.76rem;
+}
+
+.languages-panel {
+  align-self: stretch;
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.languages-panel__heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.languages-panel__heading h3 {
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.languages-panel dl > div {
+  padding-block: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.languages-panel dl > div:last-child {
+  border-bottom: 0;
+}
+
+.languages-panel dt {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.languages-panel dd {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .profile-section__grid,
+  .skills__layout,
+  .education__grid {
     grid-template-columns: 1fr;
+  }
+
+  .skills .section-intro {
+    position: static;
+    margin-bottom: 48px;
   }
 }
 
-@media (max-width: 768px) {
-  .workflow__steps {
+@media (max-width: 650px) {
+  .progression {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .workflow__step {
-    border-top: none;
-    border-left: 2px solid var(--border-subtle);
-    padding: 4px 0 16px 16px;
+  .progression li {
+    grid-template-columns: 34px 1fr;
+    grid-template-rows: auto;
+    min-height: 86px;
   }
 
-  .workflow__step:last-child {
-    padding-bottom: 0;
+  .progression__line {
+    position: absolute;
+    top: 43px;
+    bottom: -43px;
+    left: 13px;
+    width: 1px;
+    height: auto;
   }
-}
 
-/* ---- Skills ---- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.skill-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.skill-card__head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.skill-card__title {
-  font-size: var(--fs-heading-3);
-  font-weight: 600;
-}
-
-/* Subtle per-category tint within the indigo/violet family (no rainbow). */
-.skill-card--ai .icon-tile {
-  color: var(--accent-400);
-  background: rgba(99, 102, 241, 0.14);
-}
-.skill-card--genai .icon-tile {
-  color: #c4b5fd;
-  background: rgba(139, 92, 246, 0.16);
-}
-.skill-card--prog .icon-tile {
-  color: #93c5fd;
-  background: rgba(96, 165, 250, 0.14);
-}
-.skill-card--tools .icon-tile {
-  color: var(--accent-300);
-  background: rgba(129, 140, 248, 0.12);
-}
-
-@media (max-width: 1199px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .progression li:not(:last-child) .progression__line::after {
+    margin: auto 0 -2px -2px;
   }
-}
 
-@media (max-width: 600px) {
-  .skills-grid {
+  .progression li > div {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .skill-group {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .degree {
+    grid-template-columns: 1fr;
+  }
+
+  .degree__topline {
+    flex-direction: column-reverse;
+    gap: 4px;
   }
 }

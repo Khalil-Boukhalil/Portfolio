@@ -1,62 +1,45 @@
-import { ArrowUp } from 'lucide-react'
-import { contactIcons } from '../../data/iconMap'
+import { ArrowUp, BriefcaseBusiness, GitBranch, Mail } from 'lucide-react'
 import { profile } from '../../data/portfolio'
-import { navItems } from '../../data/navigation'
 
-const socials = [
-  { key: 'github', label: 'GitHub', href: profile.links.github },
-  { key: 'linkedin', label: 'LinkedIn', href: profile.links.linkedin },
-  { key: 'mail', label: 'Email', href: profile.links.email },
+const footerLinks = [
+  { label: 'GitHub', href: profile.links.github, icon: GitBranch },
+  { label: 'LinkedIn', href: profile.links.linkedin, icon: BriefcaseBusiness },
+  { label: 'Email', href: profile.links.email, icon: Mail },
 ]
 
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="container container-wide footer__inner">
-        <a className="brand footer__brand" href="#home" aria-label={`${profile.name} — home`}>
-          <span className="brand__mark" aria-hidden="true">
-            KB
-          </span>
-          <span className="brand__copy">
-            <strong>{profile.name}</strong>
-            <span>AI Engineering Portfolio</span>
-          </span>
-        </a>
+      <div className="container container--wide footer__inner">
+        <div className="footer__identity">
+          <a href="#home">Khalil Bou Khalil</a>
+          <span>Junior AI Engineer</span>
+        </div>
 
-        <nav className="footer__nav" aria-label="Footer">
-          <ul className="list-reset">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="footer__social">
-          {socials.map(({ key, label, href }) => {
-            const Icon = contactIcons[key]
+        <div className="footer__links" aria-label="Social links">
+          {footerLinks.map(({ label, href, icon: Icon }) => {
             const external = href.startsWith('http')
             return (
               <a
-                key={key}
+                key={label}
                 href={href}
                 aria-label={label}
-                {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 <Icon size={18} aria-hidden="true" />
               </a>
             )
           })}
         </div>
-      </div>
 
-      <div className="container container-wide footer__meta">
-        <span>© 2026 {profile.name} · Based in France · Available for internships</span>
         <a className="footer__top" href="#home">
           Back to top
-          <ArrowUp size={14} aria-hidden="true" />
+          <ArrowUp size={15} aria-hidden="true" />
         </a>
+      </div>
+      <div className="container container--wide footer__meta">
+        <span>© 2026 Khalil Bou Khalil</span>
+        <span>Available for full-time AI Engineer roles from October 2026</span>
       </div>
     </footer>
   )

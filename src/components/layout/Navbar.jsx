@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Menu } from 'lucide-react'
+import { useCallback, useState } from 'react'
+import { FileText, Menu } from 'lucide-react'
 import { profile } from '../../data/portfolio'
 import { navItems, sectionIds } from '../../data/navigation'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
@@ -8,28 +8,29 @@ import { MobileNav } from './MobileNav'
 export function Navbar({ scrolled }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const activeId = useScrollSpy(sectionIds)
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
 
   return (
     <header className={['navbar', scrolled && 'is-scrolled'].filter(Boolean).join(' ')}>
-      <div className="navbar__inner container container-wide">
-        <a className="brand" href="#home" aria-label={`${profile.name} — home`}>
+      <div className="container container--wide navbar__inner">
+        <a className="brand" href="#home" aria-label={`${profile.name}, home`}>
           <span className="brand__mark" aria-hidden="true">
-            KB
+            KBK
           </span>
           <span className="brand__copy">
             <strong>{profile.name}</strong>
-            <span>AI Engineering Portfolio</span>
+            <span>{profile.title}</span>
           </span>
         </a>
 
-        <nav className="navbar__nav" aria-label="Primary">
+        <nav className="navbar__nav" aria-label="Primary navigation">
           <ul className="navbar__links list-reset">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   className={activeId === item.id ? 'is-active' : undefined}
-                  aria-current={activeId === item.id ? 'page' : undefined}
+                  aria-current={activeId === item.id ? 'location' : undefined}
                 >
                   {item.label}
                 </a>
@@ -39,14 +40,14 @@ export function Navbar({ scrolled }) {
         </nav>
 
         <div className="navbar__actions">
-          <a className="btn btn--primary btn--sm navbar__cta" href={profile.links.email}>
-            <span className="pulse-dot" aria-hidden="true" />
-            Get in touch
+          <a className="nav-cv" href={profile.links.cv} target="_blank" rel="noreferrer">
+            <FileText size={16} aria-hidden="true" />
+            View CV
           </a>
           <button
             type="button"
             className="navbar__burger"
-            aria-label="Open menu"
+            aria-label="Open navigation menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen(true)}
@@ -56,7 +57,7 @@ export function Navbar({ scrolled }) {
         </div>
       </div>
 
-      <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} activeId={activeId} />
+      <MobileNav open={menuOpen} onClose={closeMenu} activeId={activeId} />
     </header>
   )
 }

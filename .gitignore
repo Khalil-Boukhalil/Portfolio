@@ -11,8 +11,14 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+!.env.example
 qa-screenshots/
 .tmp-edge-cdp-*/
+
+# Local source document used for content verification. The public copy lives in /public.
+Khalil_Bou_Khalil_CV__.pdf
 
 # Editor directories and files
 .vscode/*

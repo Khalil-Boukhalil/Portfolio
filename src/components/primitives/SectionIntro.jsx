@@ -1,24 +1,13 @@
 import { Reveal } from './Reveal'
 
-/** Numbered mono eyebrow + section heading + optional lede. */
-export function SectionIntro({ index, eyebrow, title, titleId, lede, align = 'start' }) {
+export function SectionIntro({ eyebrow, title, titleId, lede }) {
   return (
-    <Reveal
-      className={['section-intro', align === 'center' && 'section-intro--center']
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <p className="eyebrow">
-        <span className="eyebrow__num">{index}</span>
-        <span className="eyebrow__slash" aria-hidden="true">
-          /
-        </span>
-        {eyebrow}
-      </p>
+    <Reveal className="section-intro">
+      <p className="eyebrow">{eyebrow}</p>
       <h2 id={titleId} className="section-intro__title">
         {title}
       </h2>
-      {lede ? <p className="section-intro__lede measure">{lede}</p> : null}
+      {lede ? <p className="section-intro__lede">{lede}</p> : null}
     </Reveal>
   )
 }

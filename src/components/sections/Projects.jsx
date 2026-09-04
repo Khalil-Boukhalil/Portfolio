@@ -1,42 +1,34 @@
-import { projects } from '../../data/portfolio'
+import { ArrowUpRight } from 'lucide-react'
+import { profile, projects } from '../../data/portfolio'
 import { Section } from '../primitives/Section'
 import { SectionIntro } from '../primitives/SectionIntro'
-import { ProjectCard } from './ProjectCard'
-
-const pad = (n) => String(n).padStart(2, '0')
+import { ProjectFeature } from './ProjectFeature'
 
 export function Projects() {
-  const featured = projects.find((project) => project.icon === 'agents') ?? projects[0]
-  const rest = projects.filter((project) => project !== featured)
-
   return (
-    <Section id="projects" tone="base" labelledBy="projects-title" className="projects">
+    <Section id="projects" tone="raised" labelledBy="projects-title" wide className="projects">
       <SectionIntro
-        index="04"
-        eyebrow="Selected work"
-        title="Projects built like engineering work, not homework."
+        eyebrow="Featured AI projects"
+        title="Systems that go beyond a single model call."
         titleId="projects-title"
-        lede="Each project is framed around the system it solves, the stack it runs on, and the source you can read."
+        lede="The strongest project work covers retrieval, orchestration, backend services, interfaces and the review paths around AI output."
       />
 
-      <div className="projects-stack">
-        <ProjectCard
-          project={featured}
-          num={pad(projects.indexOf(featured) + 1)}
-          index={0}
-          featured
-        />
-        <div className="projects-grid">
-          {rest.map((project, i) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              num={pad(projects.indexOf(project) + 1)}
-              index={i}
-            />
-          ))}
-        </div>
+      <div className="projects__list">
+        {projects.map((project, index) => (
+          <ProjectFeature key={project.id} project={project} index={index} />
+        ))}
       </div>
+
+      <a
+        className="projects__github"
+        href={profile.links.github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore additional work on GitHub
+        <ArrowUpRight size={16} aria-hidden="true" />
+      </a>
     </Section>
   )
 }

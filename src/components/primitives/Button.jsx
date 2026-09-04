@@ -1,16 +1,13 @@
 import { ArrowUpRight } from 'lucide-react'
-import { useMagnetic } from '../../hooks/useMagnetic'
 
 function isExternalLink(href) {
-  return typeof href === 'string' && href.startsWith('http')
+  return typeof href === 'string' && /^https?:\/\//.test(href)
 }
 
-/** Anchor styled as a button. Auto external-link affordance; optional magnetic pull. */
 export function Button({
   href,
   variant = 'primary',
   size = 'md',
-  magnetic = false,
   icon: Icon,
   external,
   className = '',
@@ -18,30 +15,20 @@ export function Button({
   ...rest
 }) {
   const isExternal = external ?? isExternalLink(href)
-  const magneticRef = useMagnetic()
-
-  const classes = [
-    'btn',
-    `btn--${variant}`,
-    size === 'sm' && 'btn--sm',
-    size === 'lg' && 'btn--lg',
-    magnetic && 'btn--magnetic',
-    className,
-  ]
+  const classes = ['button', `button--${variant}`, `button--${size}`, className]
     .filter(Boolean)
     .join(' ')
 
   return (
     <a
-      ref={magnetic ? magneticRef : undefined}
       href={href}
       className={classes}
-      {...(isExternal ? { target: '_blank', rel: 'noreferrer' } : {})}
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       {...rest}
     >
-      {Icon ? <Icon size={18} aria-hidden="true" /> : null}
-      <span className="btn__label">{children}</span>
-      {isExternal ? <ArrowUpRight size={16} aria-hidden="true" className="btn__ext" /> : null}
+      {Icon ? <Icon size={18} strokeWidth={1.8} aria-hidden="true" /> : null}
+      <span>{children}</span>
+      {isExternal ? <ArrowUpRight className="button__arrow" size={15} aria-hidden="true" /> : null}
     </a>
   )
 }

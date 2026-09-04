@@ -1,45 +1,77 @@
-import { Send } from 'lucide-react'
+import { ArrowDown, BriefcaseBusiness, FileText, GitBranch } from 'lucide-react'
 import { profile } from '../../data/portfolio'
-import { usePointerSpotlight } from '../../hooks/usePointerSpotlight'
 import { Button } from '../primitives/Button'
-import { HeroBackdrop } from './HeroBackdrop'
-import { CandidateBrief } from './CandidateBrief'
+import { SystemPanel } from './SystemPanel'
 
 export function Hero() {
-  const spotlightRef = usePointerSpotlight()
-
   return (
-    <section className="hero" id="home" ref={spotlightRef} aria-label="Introduction">
-      <HeroBackdrop />
-      <div className="container container-wide hero__inner">
+    <section className="hero" id="home" aria-labelledby="hero-title">
+      <div className="hero__ambient" aria-hidden="true" />
+      <div className="container container--wide hero__inner">
         <div className="hero__copy">
-          <p className="status-pill hero__status">
-            <span className="pulse-dot" aria-hidden="true" />
-            Available — seeking a 4- to 6-month AI/ML internship
+          <p className="hero__identity">
+            <span className="status-dot" aria-hidden="true" />
+            {profile.name} · {profile.title}
           </p>
-          <p className="hero__eyebrow">{profile.role}</p>
-          <h1 className="hero__title">
-            Khalil <span className="hero__title-accent">Bou Khalil</span>
+
+          <h1 id="hero-title" className="hero__title">
+            Engineering <span>AI applications</span> that solve real problems.
           </h1>
-          <p className="hero__lede measure">
-            I build AI systems that ship — LLM applications, multi-agent workflows, and
-            machine-learning pipelines wired into real APIs, data, and interfaces.
-          </p>
+
+          <p className="hero__specialization">{profile.specialization}</p>
+          <p className="hero__lede">{profile.summary}</p>
+
           <div className="hero__actions">
-            <Button href={profile.links.email} variant="primary" size="lg" magnetic icon={Send}>
-              Get in touch
+            <Button href="#projects" size="lg">
+              View featured projects
             </Button>
-            <Button href={profile.links.github} variant="secondary" size="lg">
-              View GitHub
+            <Button
+              href={profile.links.cv}
+              variant="secondary"
+              size="lg"
+              icon={FileText}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View CV
             </Button>
-            <Button href={profile.links.linkedin} variant="secondary" size="lg">
-              LinkedIn
-            </Button>
+          </div>
+
+          <div className="hero__meta">
+            <p>
+              <strong>{profile.opportunity}</strong>
+              <span>{profile.availability}</span>
+            </p>
+            <div className="hero__socials" aria-label="Professional profiles">
+              <a
+                href={profile.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <GitBranch size={18} aria-hidden="true" />
+                GitHub
+              </a>
+              <a
+                href={profile.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <BriefcaseBusiness size={18} aria-hidden="true" />
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
-        <CandidateBrief />
+        <SystemPanel />
       </div>
+
+      <a className="hero__scroll" href="#profile" aria-label="Continue to professional profile">
+        <span>Profile</span>
+        <ArrowDown size={16} aria-hidden="true" />
+      </a>
     </section>
   )
 }
