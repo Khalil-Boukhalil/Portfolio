@@ -10,7 +10,6 @@ export const profile = {
   availability: 'Available from October 2026',
   links: {
     email: 'mailto:khalil_bou_khalil@hotmail.com',
-    phone: 'tel:+33611527680',
     github: 'https://github.com/Khalil-Boukhalil',
     linkedin: 'https://www.linkedin.com/in/khalil-bou-khalil-0587bb235/',
     portfolio: 'https://khalil-boukhalil.github.io/Portfolio/',
@@ -18,7 +17,6 @@ export const profile = {
   },
   contact: {
     email: 'khalil_bou_khalil@hotmail.com',
-    phone: '+33 6 11 52 76 80',
     github: 'github.com/Khalil-Boukhalil',
     linkedin: 'linkedin.com/in/khalil-bou-khalil-0587bb235',
   },

@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, FileText, GitBranch, Mail, Phone } from 'lucide-react'
+import { BriefcaseBusiness, FileText, GitBranch, Mail } from 'lucide-react'
 import { profile } from '../../data/portfolio'
 import { Button } from '../primitives/Button'
 import { Reveal } from '../primitives/Reveal'
@@ -9,12 +9,6 @@ const contactLinks = [
     value: profile.contact.email,
     href: profile.links.email,
     icon: Mail,
-  },
-  {
-    label: 'Phone',
-    value: profile.contact.phone,
-    href: profile.links.phone,
-    icon: Phone,
   },
   {
     label: 'LinkedIn',
