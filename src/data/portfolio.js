@@ -12,7 +12,7 @@ export const profile = {
     email: 'mailto:khalil_bou_khalil@hotmail.com',
     phone: 'tel:+33611527680',
     github: 'https://github.com/Khalil-Boukhalil',
-    linkedin: 'https://www.linkedin.com/in/khalilbou-khalil',
+    linkedin: 'https://www.linkedin.com/in/khalil-bou-khalil-0587bb235/',
     portfolio: 'https://khalil-boukhalil.github.io/Portfolio/',
     cv: publicPath('Khalil_Bou_Khalil_CV.pdf'),
   },
@@ -20,7 +20,7 @@ export const profile = {
     email: 'khalil_bou_khalil@hotmail.com',
     phone: '+33 6 11 52 76 80',
     github: 'github.com/Khalil-Boukhalil',
-    linkedin: 'linkedin.com/in/khalilbou-khalil',
+    linkedin: 'linkedin.com/in/khalil-bou-khalil-0587bb235',
   },
 }
 
